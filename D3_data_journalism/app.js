@@ -66,7 +66,8 @@ d3.csv("data.csv").then(function(healthData) {
     .attr("r", "15")
     .attr("fill", "blue")
     .attr("opacity", ".5")
-    .attr("stroke", "black");
+    .attr("stroke", "black")
+    .classed("stateCircle", true);
 
     var textGroup = chartGroup.selectAll("text")
     .data(healthData)
@@ -74,9 +75,9 @@ d3.csv("data.csv").then(function(healthData) {
     .append("text")
     .attr("x", d => xLinearScale(d.healthcare))
     .attr("y", d => yLinearScale(d.income))
-    .attr("dy", ".50em")
-    .classed("stateCircle", true)
-    .text(d => d.abbr)
+    .attr("dy", ".35em")
+    .classed("stateText", true)
+    .text(d => {return d.abbr})
 
     // Step 6: Initialize tool tip
     // ==============================
